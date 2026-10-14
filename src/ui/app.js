@@ -6,6 +6,7 @@ import { renderWorkout } from './workout.js';
 import { renderExercise } from './exercise.js';
 import { renderPrevious } from './previous.js';
 import { renderSession } from './session.js';
+import { mountTravis } from './travis.js';
 
 export const app = {
   state: {
@@ -38,3 +39,4 @@ export const app = {
 };
 
 app.render();
+mountTravis();

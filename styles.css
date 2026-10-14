@@ -261,3 +261,98 @@ input:focus {
 .note { color: var(--muted); }
 
 .footer-actions { margin-top: 26px; }
+
+/* Mascot */
+#travis {
+  position: fixed;
+  right: 14px;
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  z-index: 50;
+}
+
+.travis {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.travis-avatar {
+  width: 84px;
+  height: 84px;
+  padding: 0;
+  border: 4px solid var(--accent-2);
+  border-radius: 50%;
+  background: linear-gradient(160deg, #ffffff, #d9fbf5);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  cursor: pointer;
+  animation: travis-bob 3.2s ease-in-out infinite;
+}
+
+.travis-avatar svg { display: block; width: 100%; height: 100%; }
+.travis-avatar:active { transform: scale(0.95); }
+
+.travis .arms-flex { display: none; }
+.travis.flex .arms-rest { display: none; }
+.travis.flex .arms-flex { display: block; }
+
+.travis .mouth-open { display: none; }
+.travis.flex .mouth-closed { display: none; }
+.travis.flex .mouth-open { display: block; }
+
+.travis.flex .travis-avatar { animation: travis-flex 0.5s ease; }
+
+.travis-bubble {
+  position: absolute;
+  right: 92px;
+  bottom: 30px;
+  padding: 8px 14px;
+  background: #ffffff;
+  color: var(--accent);
+  border: 2px solid var(--accent-2);
+  border-radius: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.18);
+  opacity: 0;
+  transform: translateY(6px) scale(0.9);
+  transform-origin: bottom right;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.travis-bubble::after {
+  content: '';
+  position: absolute;
+  right: -7px;
+  bottom: 14px;
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-right: 2px solid var(--accent-2);
+  border-bottom: 2px solid var(--accent-2);
+  transform: rotate(-45deg);
+}
+
+.travis.flex .travis-bubble {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@keyframes travis-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes travis-flex {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.12) rotate(-3deg); }
+  70% { transform: scale(1.08) rotate(3deg); }
+  100% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .travis-avatar { animation: none; }
+}
+
