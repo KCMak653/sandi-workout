@@ -1,0 +1,14 @@
+{
+  "name": "sandi-workout",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simple mobile-first workout tracker (static frontend served by a tiny Node server).",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "icons": "node tools/make-icons.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

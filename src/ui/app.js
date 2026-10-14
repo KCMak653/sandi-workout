@@ -40,3 +40,10 @@ export const app = {
 
 app.render();
 mountTravis();
+
+// Offline support (requires HTTPS, so it is a no-op on plain http://localhost).
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  });
+}
