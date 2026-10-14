@@ -1,0 +1,9 @@
+{
+  "name": "Sandi's Workout",
+  "short_name": "Workout",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#e6fffb",
+  "theme_color": "#0d9488"
+}
